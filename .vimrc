@@ -49,7 +49,7 @@ set number
 
 " Identation
 set shiftwidth=2
-set autoident
+set autoindent
 set smartindent
 
 set backup
