@@ -29,9 +29,7 @@ Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
-
 "Keep 1000 items in the history
-
 set history=1000
 
 " set the rsor position
@@ -42,26 +40,21 @@ set showcmd
 
 " shows a menu when using tab completion
 set wildmenu
-
 set scrolloff=5
-
 set hlsearch
-
 set incsearch
-
 set ignorecase
-
 set smartcase
-
-" turn on line numbering
 set number
 
+" Identation
+set shiftwidth=2
+set autoident
+set smartindent
+
 set backup
-
 set lbr
-
 set ai
-
 set si
 
 
