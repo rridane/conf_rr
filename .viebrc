@@ -1,0 +1,28 @@
+nmap <C-p> <action.backInHistory>
+nmap <C-n> <action.forwardInHistory>
+
+nmap <C-j> 4j
+nmap <C-k> 4k
+
+nmap <S-j> 2j
+nmap <S-k> 2k
+
+pmap <C-j> <pointer.moveFastDown> 
+pmap <C-k> <pointer.moveFastUp> 
+pmap <C-h> <pointer.moveFastLeft> 
+pmap <C-l> <pointer.moveFastRight> 
+
+pmap <S-h> <pointer.moveSlowLeft> 
+pmap <S-l> <pointer.moveSlowRight> 
+pmap <S-j> <pointer.moveSlowDown> 
+pmap <S-k> <pointer.moveSlowUp> 
+
+pmap h 2<pointer.moveLeft> 
+pmap l 2<pointer.moveRight> 
+pmap j 2<pointer.moveDown> 
+pmap k 2<pointer.moveUp> 
+
+imap <C-i> <action.editWithVim>
+
+nmap <A-h> <action.toLeftSplitWindow>
+nmap <A-l> <action.toRightSplitWindow>
