@@ -7,22 +7,53 @@ nmap <C-k> 4k
 nmap <S-j> 2j
 nmap <S-k> 2k
 
-pmap <C-j> <pointer.moveFastDown> 
-pmap <C-k> <pointer.moveFastUp> 
-pmap <C-h> <pointer.moveFastLeft> 
-pmap <C-l> <pointer.moveFastRight> 
+pmap <c-j> 2<pointer.movefastdown> 
+pmap <c-k> 2<pointer.movefastup> 
+pmap <c-h> 2<pointer.movefastleft> 
+pmap <c-l> 2<pointer.movefastright> 
 
-pmap <S-h> <pointer.moveSlowLeft> 
-pmap <S-l> <pointer.moveSlowRight> 
-pmap <S-j> <pointer.moveSlowDown> 
-pmap <S-k> <pointer.moveSlowUp> 
+vmap <c-j> 2<pointer.movefastdown> 
+vmap <c-k> 2<pointer.movefastup> 
+vmap <c-h> 2<pointer.movefastleft> 
+vmap <c-l> 2<pointer.movefastright> 
+
+map <C-S-j> 4<pointer.moveSlowdown> 
+map <C-S-k> 4<pointer.moveSlowUp> 
+map <C-S-h> 4<pointer.moveSlowLeft> 
+map <C-S-l> 4<pointer.moveSlowRight> 
+
+pmap <S-j> <pointer.movefastdown> 
+pmap <S-k> <pointer.movefastup> 
+pmap <S-h> <pointer.movefastleft> 
+pmap <S-l> <pointer.movefastright> 
+
+vmap <S-j> <pointer.movefastdown> 
+vmap <S-k> <pointer.movefastup> 
+vmap <S-h> <pointer.movefastleft> 
+vmap <S-l> <pointer.movefastright> 
 
 pmap h 2<pointer.moveLeft> 
 pmap l 2<pointer.moveRight> 
 pmap j 2<pointer.moveDown> 
 pmap k 2<pointer.moveUp> 
 
+vmap h 2<pointer.moveLeft> 
+vmap l 2<pointer.moveRight> 
+vmap j 2<pointer.moveDown> 
+vmap k 2<pointer.moveUp> 
+
 imap <C-i> <action.editWithVim>
 
-nmap <A-h> <action.toLeftSplitWindow>
-nmap <A-l> <action.toRightSplitWindow>
+nmap <C-h> <action.toLeftSplitWindow>
+nmap <C-l> <action.toRightSplitWindow>
+
+nmap <C-è> :screencopy 940,150,0,10
+nmap <C-_> :screencopy 940,250,0,10
+nmap <C-ç> :screencopy 940,400,0,10
+nmap <C-à> :screencopy 940,550,0,10
+nmap <C-)> :screencopy 940,650,0,10
+nmap <C-=> :screencopy 940,800,0,10
+
+nmap <C-"> :screencopy 940,950,0,10
+
+
