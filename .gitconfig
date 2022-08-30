@@ -1,11 +1,8 @@
 [http]
-	proxy = "http://CptLinuxWeb:LinuxWeb@10.33.50.30:3128"
 	proxyAuthMethod = basic
-[https]
-	proxy = "http://CptLinuxWeb:LinuxWeb@10.33.50.30:3128"
 [user]
-	email = "rridane@rr-dev.com"
-	name = "rridane"
-#password = "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"
+	email = rridane@rr-dev.com
+	name = rridane
 [credential]
 	helper = cache
+[https]
