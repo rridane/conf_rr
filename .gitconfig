@@ -6,4 +6,6 @@
 [user]
 	email = "rridane@rr-dev.com"
 	name = "rridane"
-  #password = "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"
+#password = "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"
+[credential]
+	helper = cache
