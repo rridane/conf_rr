@@ -10,4 +10,6 @@ cp ./.tmux.conf ~
 cp ./.viebrc ~ 
 cp ./.bash_profile ~/.bash_aliases
 
+sudo cp forti.sh /usr/local/bin/forti
+
 source ~/.bash_aliases

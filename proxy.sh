@@ -30,4 +30,9 @@ then
 
   systemctl restart cntlm
 
+elif [[ $1 = "check" ]]
+then
+
+  grep -Po "^(Proxy|NoProxy).*" /etc/cntlm.conf
+
 fi
