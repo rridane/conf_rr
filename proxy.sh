@@ -1,38 +1,33 @@
 #!/bin/bash
 
-source /etc/profile
+# sudo-check$
+if [ $EUID -ne 0 ]; then
+   echo  'Please run this script in sudo mode or as root user'
+   exit
+fi
 
-if [ -z $http_proxy ]
+if [[ $1 =  "down" ]]
 then
 
-  sudo sed -r -i "/^(proxy|http_proxy|https_proxy)=$/d" /etc/profile
+  echo "disabling tessi proxy"
 
-  echo "set proxy"
-  sudo echo 'Acquire::http::Proxy "http://CptLinuxWeb:LinuxWeb@10.33.50.30:3128";' >> /etc/apt.conf
-  sudo echo 'Acquire::https::Proxy "http://CptLinuxWeb:LinuxWeb@10.33.50.30:3128";' >> /etc/apt.conf
+  perl -i -pe "s/.*(?=Proxy 12)//g" /etc/cntlm.conf
+  perl -i -pe "s/.*(?=NoProxy \*)//g" /etc/cntlm.conf
+  perl -i -pe "s/.*(?=Proxy 10)/#/g" /etc/cntlm.conf
+  perl -i -pe "s/.*(?=NoProxy loc)/#/g" /etc/cntlm.conf
 
-  sudo echo "export proxy=\"http://CptLinuxWeb:LinuxWeb@10.33.50.30:3128\"" >> /etc/profile
-  sudo echo "export https_proxy=\"http://CptLinuxWeb:LinuxWeb@10.33.50.30:3128\"" >> /etc/profile
-  sudo echo "export http_proxy=\"http://CptLinuxWeb:LinuxWeb@10.33.50.30:3128"\" >> /etc/profile
-  
-  source /etc/profile
+  systemctl restart cntlm
 
-  git config --global http.proxy http://CptLinuxWeb:LinuxWeb@10.33.50.30:3128
-  git config --global https.proxy http://CptLinuxWeb:LinuxWeb@10.33.50.30:3128
+elif [[ $1 = "up" ]]
+then
 
-else
+  echo "enabling tessi proxy"
 
-  echo "unset proxy"
+  perl -i -pe "s/.*(?=Proxy 12)/#/g" /etc/cntlm.conf
+  perl -i -pe "s/.*(?=NoProxy \*)/#/g" /etc/cntlm.conf
+  perl -i -pe "s/.*(?=Proxy 10)//g" /etc/cntlm.conf
+  perl -i -pe "s/.*(?=NoProxy loc)//g" /etc/cntlm.conf
 
-  git config --global --unset https.proxy
-  git config --global --unset http.proxy
-  unset http_proxy
-  unset https_proxy
-  unset proxy
-
-  sudo sed -r -i "s/^export\ (proxy|http_proxy|https_proxy)(.*)/\1=""/g" /etc/profile
-  sudo echo "" > /etc/apt.conf
-
-  source /etc/profile
+  systemctl restart cntlm
 
 fi
